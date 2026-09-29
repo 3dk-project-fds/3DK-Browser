@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- 3DK Browser — Verlauf als Kachel-Grid (wie Chrome-Startseiten-Kacheln) -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data:; font-src 'self' file:; connect-src 'self' file:;">
+<title>3DK Browser — Verlauf</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="icon" href="logo-256.png" type="image/png">
+<style>
+:root {
+  --bg:        #0D0D0D;
+  --bg-card:   #141414;
+  --bg-hover:  #181818;
+  --text:      #EDEDED;
+  --muted:     #8A8A8A;
+  --accent:    #E8621A;
+  --accent-lo: rgba(232,98,26,.12);
+  --border:    rgba(232,98,26,.18);
+  --border-s:  #262626;
+  --sans:      'Barlow', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; min-height: 100vh; }
+.wrap { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.sub { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+.day { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 26px 0 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 14px; }
+.tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  cursor: pointer;
+  transition: transform .12s, border-color .15s, background .15s;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tile:hover { border-color: var(--border); background: var(--bg-hover); transform: translateY(-2px); }
+.tile .ico {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-lo); color: var(--accent);
+  font-weight: 700; font-size: 15px; overflow: hidden; flex-shrink: 0;
+}
+.tile .ico img { width: 100%; height: 100%; object-fit: contain; }
+.tile .name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile .host { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile .time { margin-top: auto; font-size: 11px; color: var(--muted); }
+.empty { text-align: center; color: var(--muted); padding: 60px 0; }
+.empty b { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Verlauf</h1>
+  <div class="sub">Nur auf diesem Gerät. Kachel anklicken = Seite öffnen.</div>
+  <div id="list"><div class="empty">Lade …</div></div>
+</div>
+<script src="theme.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

@@ -1,0 +1,2247 @@
+{
+  "_kommentar": "Kuratiertes Verzeichnis (Lastenheft Baustein B). suche = interne Such-URL der Zielseite mit {q}. regional:true-Eintraege匹配 nur, wenn die Anfrage einen Orts-/Regionsbezug hat. prioritaet 1 (hoch) bis 3. tools/sites-pruefen.js meldet tote Such-URLs.",
+  "sites": [
+    {
+      "name": "Wikipedia",
+      "domain": "de.wikipedia.org",
+      "themen": [
+        "lexikon",
+        "wissen",
+        "was ist",
+        "definition",
+        "bedeutung"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://de.wikipedia.org/w/index.php?search={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Wiktionary",
+      "domain": "de.wiktionary.org",
+      "themen": [
+        "woerterbuch",
+        "rechtschreibung",
+        "synonym",
+        "uebersetzung wort"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://de.wiktionary.org/w/index.php?search={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Raspberry Pi",
+      "domain": "raspberrypi.com",
+      "themen": [
+        "raspberry",
+        "rpi",
+        "pi 5",
+        "einplatinenrechner"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.raspberrypi.com/search/?q={q}",
+      "prioritaet": 1,
+      "sprache": "en"
+    },
+    {
+      "name": "Raspberry Pi Forum",
+      "domain": "forums.raspberrypi.com",
+      "themen": [
+        "raspberry",
+        "rpi",
+        "gpio"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://forums.raspberrypi.com/search.php?keywords={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Arch Wiki",
+      "domain": "wiki.archlinux.org",
+      "themen": [
+        "archlinux",
+        "arch",
+        "linux"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://wiki.archlinux.org/index.php?search={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Debian Wiki",
+      "domain": "wiki.debian.org",
+      "themen": [
+        "debian",
+        "linux"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://wiki.debian.org/FindPage?action=fullsearch&value={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Geizhals",
+      "domain": "geizhals.de",
+      "themen": [
+        "preisvergleich",
+        "kaufen",
+        "preis",
+        "guenstig",
+        "hardware",
+        "angebot"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://geizhals.de/?fs={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "idealo",
+      "domain": "idealo.de",
+      "themen": [
+        "preisvergleich",
+        "kaufen",
+        "preis",
+        "guenstig",
+        "billig"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "eBay",
+      "domain": "ebay.de",
+      "themen": [
+        "kaufen",
+        "gebraucht",
+        "auktion",
+        "verkaufen"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.ebay.de/sch/i.html?_nkw={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Kleinanzeigen",
+      "domain": "kleinanzeigen.de",
+      "themen": [
+        "gebraucht",
+        "second hand",
+        "flohmarkt",
+        "verkaufen",
+        "mieten wohnung"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.kleinanzeigen.de/s-suchanfrage.html?keywords={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Amazon",
+      "domain": "amazon.de",
+      "themen": [
+        "kaufen",
+        "bestellen",
+        "shop"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.amazon.de/s?k={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "OTTO",
+      "domain": "otto.de",
+      "themen": [
+        "kaufen",
+        "bestellen",
+        "mode",
+        "moebel"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.otto.de/suche/{q}/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "MediaMarkt",
+      "domain": "mediamarkt.de",
+      "themen": [
+        "kaufen",
+        "elektronik",
+        "fernseher",
+        "handy"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.mediamarkt.de/de/search.html?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Saturn",
+      "domain": "saturn.de",
+      "themen": [
+        "kaufen",
+        "elektronik"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.saturn.de/de/search.html?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Conrad",
+      "domain": "conrad.de",
+      "themen": [
+        "kaufen",
+        "elektronik",
+        "bauteile",
+        "technik"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.conrad.de/de/search.html?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Alternate",
+      "domain": "alternate.de",
+      "themen": [
+        "kaufen",
+        "pc",
+        "hardware",
+        "komponenten"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.alternate.de/listing.xhtml?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Galaxus",
+      "domain": "galaxus.de",
+      "themen": [
+        "kaufen",
+        "elektronik",
+        "haushalt"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.galaxus.de/de/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Vinted",
+      "domain": "vinted.de",
+      "themen": [
+        "gebraucht",
+        "kleidung",
+        "mode",
+        "second hand"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.vinted.de/catalog?search_text={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Etsy",
+      "domain": "etsy.com",
+      "themen": [
+        "handgemacht",
+        "geschenk",
+        "basteln"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.etsy.com/de/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Hornbach",
+      "domain": "hornbach.de",
+      "themen": [
+        "baumarkt",
+        "bauen",
+        "werkzeug",
+        "garten"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.hornbach.de/shop/suche/{q}/artikel.html",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "OBI",
+      "domain": "obi.de",
+      "themen": [
+        "baumarkt",
+        "bauen",
+        "werkzeug",
+        "garten"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.obi.de/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Thalia",
+      "domain": "thalia.de",
+      "themen": [
+        "buecher",
+        "buch",
+        "lesen",
+        "ebook",
+        "hoerbuch"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.thalia.de/suche?sq={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "GitHub",
+      "domain": "github.com",
+      "themen": [
+        "code",
+        "repository",
+        "software",
+        "programmieren",
+        "opensource",
+        "git"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://github.com/search?q={q}&type=repositories",
+      "prioritaet": 1,
+      "sprache": "en"
+    },
+    {
+      "name": "Stack Overflow",
+      "domain": "stackoverflow.com",
+      "themen": [
+        "programmieren",
+        "code",
+        "fehler",
+        "error",
+        "entwicklung"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://stackoverflow.com/search?q={q}",
+      "prioritaet": 1,
+      "sprache": "en"
+    },
+    {
+      "name": "MDN Web Docs",
+      "domain": "developer.mozilla.org",
+      "themen": [
+        "javascript",
+        "css",
+        "html",
+        "webentwicklung"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://developer.mozilla.org/de/search?q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Hugging Face",
+      "domain": "huggingface.co",
+      "themen": [
+        "llm",
+        "modell",
+        "ki",
+        "machine learning",
+        "stt",
+        "spracherkennung",
+        "tts",
+        "datensatz",
+        "transformers",
+        "whisper"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://huggingface.co/models?search={q}",
+      "prioritaet": 1,
+      "sprache": "en"
+    },
+    {
+      "name": "Ollama Library",
+      "domain": "ollama.com",
+      "themen": [
+        "ollama",
+        "lokale ki",
+        "local llm",
+        "llm"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://ollama.com/search?q={q}",
+      "prioritaet": 1,
+      "sprache": "en"
+    },
+    {
+      "name": "OpenRouter",
+      "domain": "openrouter.ai",
+      "themen": [
+        "llm",
+        "ki api",
+        "modell preis"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://openrouter.ai/models?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Papers with Code",
+      "domain": "paperswithcode.com",
+      "themen": [
+        "ki",
+        "machine learning",
+        "paper",
+        "forschung"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://paperswithcode.com/search?q_meta={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Wolfram Alpha",
+      "domain": "wolframalpha.com",
+      "themen": [
+        "rechnen",
+        "mathe",
+        "formel",
+        "berechnung"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.wolframalpha.com/input?i={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Heise",
+      "domain": "heise.de",
+      "themen": [
+        "it news",
+        "technik",
+        "nachrichten it"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.heise.de/suche/?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Golem",
+      "domain": "golem.de",
+      "themen": [
+        "it news",
+        "technik",
+        "nachrichten it"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.golem.de/search/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Tagesschau",
+      "domain": "tagesschau.de",
+      "themen": [
+        "nachrichten",
+        "news",
+        "politik",
+        "aktuell"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.tagesschau.de/suche/?searchValue={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Spiegel",
+      "domain": "spiegel.de",
+      "themen": [
+        "nachrichten",
+        "news",
+        "politik"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.spiegel.de/suche/?suchbegriff={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Zeit",
+      "domain": "zeit.de",
+      "themen": [
+        "nachrichten",
+        "news"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.zeit.de/suche/index?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Deutsche Bahn — Verkehrsmeldungen",
+      "domain": "bahn.de",
+      "themen": [
+        "bahn",
+        "verspaetung",
+        "stoerung",
+        "zugausfall",
+        "verkehrsmeldung"
+      ],
+      "kategorie": "fahrplan",
+      "suche": "https://www.bahn.de/suche?q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Deutsche Bahn — Fahrplan",
+      "domain": "bahn.de",
+      "themen": [
+        "bahn",
+        "fahrplan",
+        "abfahrt",
+        "ankunft",
+        "verbindung",
+        "ticket",
+        "bahnverbindung",
+        "zug"
+      ],
+      "kategorie": "fahrplan",
+      "suche": "https://www.bahn.de/suche?q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Flixbus",
+      "domain": "flixbus.de",
+      "themen": [
+        "fernbus",
+        "bus",
+        "ticket"
+      ],
+      "kategorie": "fahrplan",
+      "suche": "https://www.flixbus.de/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "OpenStreetMap",
+      "domain": "openstreetmap.org",
+      "themen": [
+        "karte",
+        "stadtplan",
+        "adresse",
+        "weg"
+      ],
+      "kategorie": "regional",
+      "suche": "https://www.openstreetmap.org/search?query={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Komoot",
+      "domain": "komoot.com",
+      "themen": [
+        "wandern",
+        "radtour",
+        "route",
+        "tour"
+      ],
+      "kategorie": "regional",
+      "suche": "https://www.komoot.com/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Wetter.com",
+      "domain": "wetter.com",
+      "themen": [
+        "wetter",
+        "vorhersage",
+        "temperatur",
+        "regen"
+      ],
+      "kategorie": "wetter",
+      "suche": "https://www.wetter.com/suche/?q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "WetterOnline",
+      "domain": "wetteronline.de",
+      "themen": [
+        "wetter",
+        "vorhersage",
+        "regenradar"
+      ],
+      "kategorie": "wetter",
+      "suche": "https://www.wetteronline.de/suche?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "DWD Warnungen",
+      "domain": "dwd.de",
+      "themen": [
+        "unwetter",
+        "warnung",
+        "hochwasser",
+        "wetterwarnung"
+      ],
+      "kategorie": "wetter",
+      "suche": "https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnWetter_node.html",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "Chefkoch",
+      "domain": "chefkoch.de",
+      "themen": [
+        "rezept",
+        "kochen",
+        "backen",
+        "gericht",
+        "essen"
+      ],
+      "kategorie": "rezepte",
+      "suche": "https://www.chefkoch.de/rs/s0/{q}/Rezepte.html",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "LECKER",
+      "domain": "lecker.de",
+      "themen": [
+        "rezept",
+        "kochen",
+        "backen"
+      ],
+      "kategorie": "rezepte",
+      "suche": "https://www.lecker.de/suche?text={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Gutefrage",
+      "domain": "gutefrage.net",
+      "themen": [
+        "frage",
+        "hilfe",
+        "community",
+        "rat"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.gutefrage.net/suche?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Reddit",
+      "domain": "reddit.com",
+      "themen": [
+        "forum",
+        "community",
+        "diskussion"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.reddit.com/search/?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Netdoktor",
+      "domain": "netdoktor.de",
+      "themen": [
+        "gesundheit",
+        "krankheit",
+        "symptom",
+        "medizin",
+        "arzt"
+      ],
+      "kategorie": "medizin",
+      "suche": "https://www.netdoktor.de/search/?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Apotheken Umschau",
+      "domain": "apotheken-umschau.de",
+      "themen": [
+        "gesundheit",
+        "medikament",
+        "apotheke"
+      ],
+      "kategorie": "medizin",
+      "suche": "https://www.apotheken-umschau.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Medisiegel/Gelbe Liste",
+      "domain": "gelbe-liste.de",
+      "themen": [
+        "medikament",
+        "wirkstoff",
+        "arzneimittel"
+      ],
+      "kategorie": "medizin",
+      "suche": "https://www.gelbe-liste.de/suche?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "116117 Notdienst",
+      "domain": "116117.de",
+      "themen": [
+        "notdienst",
+        "arzt",
+        "bereitschaft"
+      ],
+      "kategorie": "medizin",
+      "suche": "https://www.116117.de/de/index.php",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Finanztip",
+      "domain": "finanztip.de",
+      "themen": [
+        "finanzen",
+        "geld",
+        "versicherung",
+        "kredit",
+        "etf",
+        "strom",
+        "gas",
+        "sparen"
+      ],
+      "kategorie": "finanzen",
+      "suche": "https://www.finanztip.de/",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Finanzen.net",
+      "domain": "finanzen.net",
+      "themen": [
+        "aktien",
+        "boerse",
+        "depot",
+        "fonds",
+        "etf",
+        "kurs"
+      ],
+      "kategorie": "finanzen",
+      "suche": "https://www.finanzen.net/suchergebnis.asp?_search={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Check24",
+      "domain": "check24.de",
+      "themen": [
+        "vergleich",
+        "versicherung",
+        "strom",
+        "gas",
+        "kredit",
+        "tarif"
+      ],
+      "kategorie": "finanzen",
+      "suche": "https://www.check24.de/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Verbraucherzentrale BW",
+      "domain": "verbraucherzentrale-bw.de",
+      "themen": [
+        "verbraucherschutz",
+        "abzocke",
+        "vertrag",
+        "widerruf",
+        "reklamation"
+      ],
+      "kategorie": "recht",
+      "suche": "https://www.verbraucherzentrale-bw.de/suche?tx_bawsearch_search%5Bquery%5D={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Gesetze im Internet",
+      "domain": "gesetze-im-internet.de",
+      "themen": [
+        "gesetz",
+        "recht",
+        "paragraph",
+        "urteil",
+        "verordnung"
+      ],
+      "kategorie": "recht",
+      "suche": "https://www.gesetze-im-internet.de/cgi-bin/htsearch?config=bmj_law&method=and&word={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Bundesfinanzhof/Justizportal",
+      "domain": "justiz.de",
+      "themen": [
+        "urteil",
+        "gericht",
+        "rechtsprechung"
+      ],
+      "kategorie": "recht",
+      "suche": "https://www.justiz.de/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Bundesagentur für Arbeit",
+      "domain": "arbeitsagentur.de",
+      "themen": [
+        "arbeitsamt",
+        "jobcenter",
+        "buergergeld",
+        "arbeitslos",
+        "kurzarbeit"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.arbeitsagentur.de/suche?search_api_fulltext={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Deutsche Rentenversicherung",
+      "domain": "deutsche-rentenversicherung.de",
+      "themen": [
+        "rente",
+        "rentenversicherung",
+        "altersvorsorge",
+        "rentenkonto"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.deutsche-rentenversicherung.de/",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "ELSTER",
+      "domain": "elster.de",
+      "themen": [
+        "steuer",
+        "steuererklaerung",
+        "finanzamt",
+        "lohnsteuer"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.elster.de/eportal",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "ImmobilienScout24",
+      "domain": "immobilienscout24.de",
+      "themen": [
+        "wohnung",
+        "mieten",
+        "haus kaufen",
+        "immobilie",
+        "mietwohnung"
+      ],
+      "kategorie": "wohnung",
+      "suche": "https://www.immobilienscout24.de/Suche/radius/wohnungen-mieten?centerofsearchaddress={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Immowelt",
+      "domain": "immowelt.de",
+      "themen": [
+        "wohnung",
+        "mieten",
+        "haus kaufen",
+        "immobilie"
+      ],
+      "kategorie": "wohnung",
+      "suche": "https://www.immowelt.de/classified-search?distributionTypes=Rent,Buy&estateTypes=House,Apartment&locations={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "WG-Gesucht",
+      "domain": "wg-gesucht.de",
+      "themen": [
+        "wg",
+        "zimmer",
+        "mieten",
+        "studentenwohnung"
+      ],
+      "kategorie": "wohnung",
+      "suche": "https://www.wg-gesucht.de/wg-zimmer-in-{q}.0.0.1.0.html",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Mobile.de",
+      "domain": "mobile.de",
+      "themen": [
+        "auto",
+        "gebrauchtwagen",
+        "fahrzeug",
+        "pkw"
+      ],
+      "kategorie": "auto",
+      "suche": "https://suchen.mobile.de/fahrzeuge/search.html?isSearchRequest=true&ft=fulltext&q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "AutoScout24",
+      "domain": "autoscout24.de",
+      "themen": [
+        "auto",
+        "gebrauchtwagen",
+        "fahrzeug"
+      ],
+      "kategorie": "auto",
+      "suche": "https://www.autoscout24.de/lst/{q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "ADAC",
+      "domain": "adac.de",
+      "themen": [
+        "stau",
+        "verkehr",
+        "panne",
+        "autoclub"
+      ],
+      "kategorie": "auto",
+      "suche": "https://www.adac.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "TÜV",
+      "domain": "tuv.com",
+      "themen": [
+        "tuev",
+        "hauptuntersuchung",
+        "pruefung"
+      ],
+      "kategorie": "auto",
+      "suche": "https://www.tuv.com/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Indeed",
+      "domain": "de.indeed.com",
+      "themen": [
+        "job",
+        "arbeit",
+        "stelle",
+        "karriere",
+        "bewerbung"
+      ],
+      "kategorie": "jobs",
+      "suche": "https://de.indeed.com/jobs?q={q}",
+      "prioritaet": 1,
+      "sprache": "de"
+    },
+    {
+      "name": "StepStone",
+      "domain": "stepstone.de",
+      "themen": [
+        "job",
+        "arbeit",
+        "stelle",
+        "karriere"
+      ],
+      "kategorie": "jobs",
+      "suche": "https://www.stepstone.de/jobs/alle?ws={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Jobbörse Arbeitsagentur",
+      "domain": "arbeitsagentur.de",
+      "themen": [
+        "job",
+        "arbeit",
+        "stelle",
+        "ausbildung"
+      ],
+      "kategorie": "jobs",
+      "suche": "https://www.arbeitsagentur.de/jobsuche/suche?searchText={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Booking.com",
+      "domain": "booking.com",
+      "themen": [
+        "hotel",
+        "uebernachtung",
+        "unterkunft",
+        "urlaub",
+        "reise"
+      ],
+      "kategorie": "reise",
+      "suche": "https://www.booking.com/searchresults.de.html?ss={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Urlaubspiraten",
+      "domain": "urlaubspiraten.de",
+      "themen": [
+        "urlaub",
+        "schnaeppchen reise",
+        "pauschalreise"
+      ],
+      "kategorie": "reise",
+      "suche": "https://www.urlaubspiraten.de/suche?term={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Kino.de",
+      "domain": "kino.de",
+      "themen": [
+        "kino",
+        "film",
+        "kinoprogramm"
+      ],
+      "kategorie": "regional",
+      "suche": "https://www.kino.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Fußball.de",
+      "domain": "fussball.de",
+      "themen": [
+        "fussball",
+        "tabelle",
+        "spielplan",
+        "verein"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.fussball.de/search#!/?term={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Kicker",
+      "domain": "kicker.de",
+      "themen": [
+        "fussball",
+        "bundesliga",
+        "sport"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.kicker.de/suche/{q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "YouTube",
+      "domain": "youtube.com",
+      "themen": [
+        "video",
+        "anleitung video",
+        "tutorial video",
+        "musik"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.youtube.com/results?search_query={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Instructables",
+      "domain": "instructables.com",
+      "themen": [
+        "basteln",
+        "diy",
+        "projekt",
+        "werkstatt"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.instructables.com/search/?q={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Thingiverse",
+      "domain": "thingiverse.com",
+      "themen": [
+        "3d druck",
+        "3d-druck",
+        "druckvorlage",
+        "stl"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.thingiverse.com/search?q={q}&type=things",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Printables",
+      "domain": "printables.com",
+      "themen": [
+        "3d druck",
+        "3d-druck",
+        "stl",
+        "druckvorlage"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.printables.com/search/models?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Arduino Forum",
+      "domain": "forum.arduino.cc",
+      "themen": [
+        "arduino",
+        "esp32",
+        "microcontroller",
+        "sensor"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://forum.arduino.cc/search?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Home Assistant Community",
+      "domain": "community.home-assistant.io",
+      "themen": [
+        "smarthome",
+        "home assistant",
+        "hausautomation",
+        "zigbee"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://community.home-assistant.io/search?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Proxmox Forum",
+      "domain": "forum.proxmox.com",
+      "themen": [
+        "proxmox",
+        "pve",
+        "virtualisierung",
+        "homelab"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://forum.proxmox.com/search/?keywords={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Synology KB",
+      "domain": "kb.synology.com",
+      "themen": [
+        "nas",
+        "synology",
+        "netzwerkspeicher"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://kb.synology.com/de-de/global/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Pi-hole Discourse",
+      "domain": "discourse.pi-hole.net",
+      "themen": [
+        "pihole",
+        "pi hole",
+        "werbefilter",
+        "dns"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://discourse.pi-hole.net/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "npm",
+      "domain": "npmjs.com",
+      "themen": [
+        "npm",
+        "node",
+        "javascript paket",
+        "package"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.npmjs.com/search?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "PyPI",
+      "domain": "pypi.org",
+      "themen": [
+        "python",
+        "pip",
+        "paket python",
+        "library"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://pypi.org/search/?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Python Docs",
+      "domain": "docs.python.org",
+      "themen": [
+        "python",
+        "dokumentation python"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://docs.python.org/3/search.html?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Electron Docs",
+      "domain": "electronjs.org",
+      "themen": [
+        "electron",
+        "desktop app"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.electronjs.org/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Wikitech/MediaWiki",
+      "domain": "mediawiki.org",
+      "themen": [
+        "mediawiki",
+        "wikisoftware"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.mediawiki.org/w/index.php?search={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Stadt Freudenstadt",
+      "domain": "freudenstadt.de",
+      "themen": [
+        "freudenstadt",
+        "rathaus freudenstadt",
+        "stadtverwaltung"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.freudenstadt.de/",
+      "prioritaet": 1,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freudenstadt"
+      ]
+    },
+    {
+      "name": "Teinachtal/Tourismus Freudenstadt",
+      "domain": "freudenstadt.de",
+      "themen": [
+        "freudenstadt sehenswuerdigkeiten",
+        "tourismus freudenstadt",
+        "marktplatz"
+      ],
+      "kategorie": "regional",
+      "suche": "https://www.freudenstadt.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freudenstadt"
+      ]
+    },
+    {
+      "name": "Landkreis Freudenstadt",
+      "domain": "landkreis-freudenstadt.de",
+      "themen": [
+        "landkreis freudenstadt",
+        "landratsamt"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.landkreis-freudenstadt.de/",
+      "prioritaet": 1,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freudenstadt",
+        "landkreis freudenstadt",
+        "baiersbronn",
+        "horb",
+        "dornstetten",
+        "pfalzgrafenweiler",
+        "lossburg",
+        "losburg",
+        "seewald",
+        "groembach",
+        "woernersberg",
+        "empfinger",
+        "altensteig"
+      ]
+    },
+    {
+      "name": "Schwarzwald Tourismus",
+      "domain": "schwarzwald-tourismus.info",
+      "themen": [
+        "schwarzwald",
+        "wanderung",
+        "ausflugsziel",
+        "sehenswuerdigkeiten"
+      ],
+      "kategorie": "regional",
+      "suche": "https://www.schwarzwald-tourismus.info/suche?text={q}",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "schwarzwald",
+        "freudenstadt",
+        "calw",
+        "offenburg",
+        "freiburg",
+        "baden-baden",
+        "titisee",
+        "feldberg",
+        "trikberg",
+        "triberg",
+        "schluchsee",
+        "baiersbronn"
+      ]
+    },
+    {
+      "name": "Stadt Calw",
+      "domain": "calw.de",
+      "themen": [
+        "calw",
+        "rathaus calw",
+        "hermann hesse"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.calw.de/",
+      "prioritaet": 1,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "calw",
+        "hirsau",
+        "bad liebenzell",
+        "nagold"
+      ]
+    },
+    {
+      "name": "Stadt Nagold",
+      "domain": "nagold.de",
+      "themen": [
+        "nagold"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.nagold.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "nagold"
+      ]
+    },
+    {
+      "name": "Stadt Horb",
+      "domain": "horb.de",
+      "themen": [
+        "horb",
+        "neckar"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.horb.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "horb"
+      ]
+    },
+    {
+      "name": "Stadt Offenburg",
+      "domain": "offenburg.de",
+      "themen": [
+        "offenburg"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.offenburg.de/",
+      "prioritaet": 1,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "offenburg"
+      ]
+    },
+    {
+      "name": "Stadt Stuttgart",
+      "domain": "stuttgart.de",
+      "themen": [
+        "stuttgart"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.stuttgart.de/suche.php?q={q}",
+      "prioritaet": 1,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "stuttgart"
+      ]
+    },
+    {
+      "name": "Stadt Freiburg",
+      "domain": "freiburg.de",
+      "themen": [
+        "freiburg"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.freiburg.de/",
+      "prioritaet": 1,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freiburg"
+      ]
+    },
+    {
+      "name": "Stadt Pforzheim",
+      "domain": "pforzheim.de",
+      "themen": [
+        "pforzheim",
+        "schmuckstadt"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.pforzheim.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "pforzheim"
+      ]
+    },
+    {
+      "name": "Stadt Rottweil",
+      "domain": "rottweil.de",
+      "themen": [
+        "rottweil"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.rottweil.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "rottweil"
+      ]
+    },
+    {
+      "name": "Stadt Villingen-Schwenningen",
+      "domain": "villingen-schwenningen.de",
+      "themen": [
+        "villingen",
+        "schwenningen",
+        "vs"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.villingen-schwenningen.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "villingen",
+        "schwenningen"
+      ]
+    },
+    {
+      "name": "Stadt Tübingen",
+      "domain": "tuebingen.de",
+      "themen": [
+        "tuebingen",
+        "tübingen"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.tuebingen.de/",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "tuebingen",
+        "tübingen"
+      ]
+    },
+    {
+      "name": "Schwarzwälder Bote",
+      "domain": "schwarzwaelder-bote.de",
+      "themen": [
+        "zeitung",
+        "lokales",
+        "nachrichten region"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.schwarzwaelder-bote.de/suche?text={q}",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freudenstadt",
+        "calw",
+        "nagold",
+        "horb",
+        "rottweil",
+        "villingen",
+        "schwarzwald",
+        "baiersbronn",
+        "altensteig",
+        "dornstetten"
+      ]
+    },
+    {
+      "name": "SWR Aktuell Baden-Württemberg",
+      "domain": "swr.de",
+      "themen": [
+        "nachrichten",
+        "regional news",
+        "radio"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.swr.de/swr-suche-100.html?search={q}",
+      "prioritaet": 2,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "baden",
+        "wuerttemberg",
+        "stuttgart",
+        "freiburg",
+        "karlsruhe",
+        "freudenstadt",
+        "schwarzwald"
+      ]
+    },
+    {
+      "name": "Badische Zeitung",
+      "domain": "badische-zeitung.de",
+      "themen": [
+        "zeitung",
+        "lokales"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.badische-zeitung.de/suche?q={q}",
+      "prioritaet": 3,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freiburg",
+        "offenburg",
+        "baden",
+        "lörrach",
+        "loerrach",
+        "emmendingen"
+      ]
+    },
+    {
+      "name": "Stadtwerke Freudenstadt",
+      "domain": "stadtwerke-freudenstadt.de",
+      "themen": [
+        "stadtwerke",
+        "strom",
+        "wasser",
+        "schwimmbad"
+      ],
+      "kategorie": "behoerde",
+      "suche": "https://www.stadtwerke-freudenstadt.de/",
+      "prioritaet": 3,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freudenstadt"
+      ]
+    },
+    {
+      "name": "Volksbank Freudenstadt/Horb",
+      "domain": "voba-fds.de",
+      "themen": [
+        "bank",
+        "volksbank",
+        "konto"
+      ],
+      "kategorie": "finanzen",
+      "suche": "https://www.voba-fds.de/",
+      "prioritaet": 3,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freudenstadt",
+        "horb"
+      ]
+    },
+    {
+      "name": "KVV (Karlsruher Verkehrsverbund)",
+      "domain": "kvv.de",
+      "themen": [
+        "fahrplan",
+        "bus",
+        "bahn",
+        "verbund"
+      ],
+      "kategorie": "fahrplan",
+      "suche": "https://www.kvv.de/fahrplan/fahrplanauskunft.html",
+      "prioritaet": 3,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "karlsruhe",
+        "calw",
+        "pforzheim",
+        "bad liebenzell"
+      ]
+    },
+    {
+      "name": "VVS (Stuttgart)",
+      "domain": "vvs.de",
+      "themen": [
+        "fahrplan",
+        "bus",
+        "bahn",
+        "verbund"
+      ],
+      "kategorie": "fahrplan",
+      "suche": "https://www.vvs.de/",
+      "prioritaet": 3,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "stuttgart",
+        "nagold",
+        "calw"
+      ]
+    },
+    {
+      "name": "RVF (Freiburg)",
+      "domain": "rvf.de",
+      "themen": [
+        "fahrplan",
+        "bus",
+        "bahn",
+        "verbund"
+      ],
+      "kategorie": "fahrplan",
+      "suche": "https://www.rvf.de/",
+      "prioritaet": 3,
+      "sprache": "de",
+      "regional": true,
+      "region": [
+        "freiburg"
+      ]
+    },
+    {
+      "name": "dm",
+      "domain": "dm.de",
+      "themen": [
+        "drogerie",
+        "kosmetik",
+        "baby"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.dm.de/search?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Rossmann",
+      "domain": "rossmann.de",
+      "themen": [
+        "drogerie",
+        "kosmetik"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.rossmann.de/de/search?text={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Zalando",
+      "domain": "zalando.de",
+      "themen": [
+        "mode",
+        "kleidung",
+        "schuhe"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.zalando.de/katalog/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Decathlon",
+      "domain": "decathlon.de",
+      "themen": [
+        "sport",
+        "fitness",
+        "wandern ausruestung",
+        "fahrrad"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.decathlon.de/search?Ntt={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Bergfreunde",
+      "domain": "bergfreunde.de",
+      "themen": [
+        "wandern",
+        "berg",
+        "outdoor",
+        "kletter"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.bergfreunde.de/s/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Zooplus",
+      "domain": "zooplus.de",
+      "themen": [
+        "haustier",
+        "hund",
+        "katze",
+        "futter"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.zooplus.de/search?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Duden",
+      "domain": "duden.de",
+      "themen": [
+        "rechtschreibung",
+        "wort",
+        "grammatik"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.duden.de/suchen/dudenonline/{q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "LEO Wörterbuch",
+      "domain": "leo.org",
+      "themen": [
+        "uebersetzen",
+        "englisch",
+        "franzoesisch",
+        "woerterbuch"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://dict.leo.org/englisch-deutsch/{q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "DeepL",
+      "domain": "deepl.com",
+      "themen": [
+        "uebersetzen",
+        "uebersetzer",
+        "translate"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.deepl.com/translator#de/en/{q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "DWDS",
+      "domain": "dwds.de",
+      "themen": [
+        "wort",
+        "sprache",
+        "korpus"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://www.dwds.de/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "SelfHTML",
+      "domain": "wiki.selfhtml.org",
+      "themen": [
+        "html",
+        "css",
+        "webentwicklung",
+        "javascript"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://wiki.selfhtml.org/index.php?search={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "W3Schools",
+      "domain": "w3schools.com",
+      "themen": [
+        "html",
+        "css",
+        "javascript",
+        "lernen programmieren"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.w3schools.com/",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Docker Hub",
+      "domain": "hub.docker.com",
+      "themen": [
+        "docker",
+        "container",
+        "image"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://hub.docker.com/search?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Kubernetes Docs",
+      "domain": "kubernetes.io",
+      "themen": [
+        "kubernetes",
+        "k8s",
+        "cluster"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://kubernetes.io/docs/",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "WireGuard",
+      "domain": "wireguard.com",
+      "themen": [
+        "vpn",
+        "wireguard",
+        "tunnel"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.wireguard.com/",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Telekom Hilfe",
+      "domain": "telekom.de",
+      "themen": [
+        "telekom",
+        "dsl",
+        "magenta",
+        "internetanschluss"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.telekom.de/hilfe/search?searchTerm={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Vodafone",
+      "domain": "vodafone.de",
+      "themen": [
+        "vodafone",
+        "dsl",
+        "kabel",
+        "mobilfunk"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.vodafone.de/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "1&1",
+      "domain": "1und1.de",
+      "themen": [
+        "dsl",
+        "internetanbieter"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://www.1und1.de/suche?term={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Post DHL Sendungsverfolgung",
+      "domain": "dhl.de",
+      "themen": [
+        "paket",
+        "sendungsverfolgung",
+        "dhl",
+        "post"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.dhl.de/de/privatkunden/pakete-empfangen/verfolgen.html",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Hermes Sendungsverfolgung",
+      "domain": "myhermes.de",
+      "themen": [
+        "paket",
+        "sendungsverfolgung",
+        "hermes"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.myhermes.de/empfangen/sendungsverfolgung/",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Süddeutsche Zeitung",
+      "domain": "sueddeutsche.de",
+      "themen": [
+        "nachrichten",
+        "zeitung",
+        "politik"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.sueddeutsche.de/suche?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "FAZ",
+      "domain": "faz.net",
+      "themen": [
+        "nachrichten",
+        "zeitung",
+        "wirtschaft"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.faz.net/suche/?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Welt",
+      "domain": "welt.de",
+      "themen": [
+        "nachrichten",
+        "politik"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.welt.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "n-tv",
+      "domain": "n-tv.de",
+      "themen": [
+        "nachrichten",
+        "aktuell"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.n-tv.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Stern",
+      "domain": "stern.de",
+      "themen": [
+        "nachrichten",
+        "magazin"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.stern.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Handelsblatt",
+      "domain": "handelsblatt.com",
+      "themen": [
+        "wirtschaft",
+        "boerse",
+        "finanzen"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.handelsblatt.com/suche/?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "ComputerBase",
+      "domain": "computerbase.de",
+      "themen": [
+        "hardware",
+        "pc",
+        "test"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://www.computerbase.de/suche/?q={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "t3n",
+      "domain": "t3n.de",
+      "themen": [
+        "startup",
+        "digital",
+        "ki"
+      ],
+      "kategorie": "nachrichten",
+      "suche": "https://t3n.de/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Microsoft Learn",
+      "domain": "learn.microsoft.com",
+      "themen": [
+        "windows",
+        "azure",
+        "powershell",
+        "doku"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://learn.microsoft.com/de-de/search/?terms={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Super User",
+      "domain": "superuser.com",
+      "themen": [
+        "windows",
+        "pc",
+        "fehler"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://superuser.com/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Ask Ubuntu",
+      "domain": "askubuntu.com",
+      "themen": [
+        "ubuntu",
+        "linux",
+        "fehler"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://askubuntu.com/search?q={q}",
+      "prioritaet": 2,
+      "sprache": "en"
+    },
+    {
+      "name": "Rust-Doku",
+      "domain": "doc.rust-lang.org",
+      "themen": [
+        "rust",
+        "programmierung"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://doc.rust-lang.org/std/?search={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Oracle-Doku",
+      "domain": "docs.oracle.com",
+      "themen": [
+        "java",
+        "jdk",
+        "datenbank"
+      ],
+      "kategorie": "dokumentation",
+      "suche": "https://docs.oracle.com/search/?q={q}",
+      "prioritaet": 3,
+      "sprache": "en"
+    },
+    {
+      "name": "Kaufland",
+      "domain": "kaufland.de",
+      "themen": [
+        "supermarkt",
+        "angebot",
+        "kaufen"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.kaufland.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Thomann",
+      "domain": "thomann.de",
+      "themen": [
+        "musik",
+        "instrument",
+        "audio"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.thomann.de/de/search_dir.html?sw={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "Steam",
+      "domain": "store.steampowered.com",
+      "themen": [
+        "spiel",
+        "games",
+        "pc-spiel"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://store.steampowered.com/search/?term={q}",
+      "prioritaet": 2,
+      "sprache": "de"
+    },
+    {
+      "name": "gesundheit.bund.de",
+      "domain": "gesundheit.bund.de",
+      "themen": [
+        "gesundheit",
+        "krankheit",
+        "impfung"
+      ],
+      "kategorie": "medizin",
+      "suche": "https://gesund.bund.de/suche?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Verivox",
+      "domain": "verivox.de",
+      "themen": [
+        "strom",
+        "gas",
+        "tarif",
+        "versicherung"
+      ],
+      "kategorie": "finanzen",
+      "suche": "https://www.verivox.de/suche/?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Serlo",
+      "domain": "de.serlo.org",
+      "themen": [
+        "mathe",
+        "schule",
+        "lernen"
+      ],
+      "kategorie": "nachschlagen",
+      "suche": "https://de.serlo.org/search?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Mannheim",
+      "domain": "mannheim.de",
+      "themen": [
+        "rathaus",
+        "stadt",
+        "termin"
+      ],
+      "kategorie": "regional",
+      "regional": true,
+      "region": [
+        "mannheim"
+      ],
+      "suche": "https://www.mannheim.de/de/suche?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Konstanz",
+      "domain": "konstanz.de",
+      "themen": [
+        "rathaus",
+        "stadt",
+        "termin"
+      ],
+      "kategorie": "regional",
+      "regional": true,
+      "region": [
+        "konstanz",
+        "bodensee"
+      ],
+      "suche": "https://www.konstanz.de/suche?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Reutlingen",
+      "domain": "reutlingen.de",
+      "themen": [
+        "rathaus",
+        "stadt",
+        "termin"
+      ],
+      "kategorie": "regional",
+      "regional": true,
+      "region": [
+        "reutlingen"
+      ],
+      "suche": "https://www.reutlingen.de/suche?query={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    },
+    {
+      "name": "Bauhaus",
+      "domain": "bauhaus.info",
+      "themen": [
+        "baumarkt",
+        "werkzeug",
+        "bauen"
+      ],
+      "kategorie": "kaufen",
+      "suche": "https://www.bauhaus.info/suche?q={q}",
+      "prioritaet": 3,
+      "sprache": "de"
+    }
+  ]
+}

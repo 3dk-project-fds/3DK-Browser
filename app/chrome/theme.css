@@ -1,0 +1,16 @@
+/* Theme-Umschaltung für alle Browser-eigenen Seiten.
+   Hell/Dunkel über [data-theme] auf <html>; Standard dunkel. */
+:root[data-theme='light'] {
+  --chrome-bg: #FFFFFF;
+  --bg:        #F7F5F2;
+  --bg-card:   #FFFFFF;
+  --bg-hover:  #EFECE7;
+  --text:      #1A1A1A;
+  --muted:     #6B6B6B;
+  --accent:    #D9531E;
+  --accent-lo: rgba(217,83,30,.10);
+  --accent-md: rgba(217,83,30,.22);
+  --border:    rgba(217,83,30,.30);
+  --border-s:  #E4E0DA;
+  --shadow:    0 0 60px rgba(217,83,30,.10);
+}

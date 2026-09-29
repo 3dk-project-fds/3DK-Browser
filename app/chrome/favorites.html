@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- 3DK Browser — Favoriten als verwaltbare Liste (Lastenheft F1–F5) -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data:; font-src 'self' file:; connect-src 'self' file:;">
+<title>3DK Browser — Favoriten</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="icon" href="logo-256.png" type="image/png">
+<style>
+:root {
+  --bg:        #0D0D0D;
+  --bg-card:   #141414;
+  --bg-hover:  #181818;
+  --text:      #EDEDED;
+  --muted:     #8A8A8A;
+  --accent:    #E8621A;
+  --accent-lo: rgba(232,98,26,.12);
+  --border:    rgba(232,98,26,.18);
+  --border-s:  #262626;
+  --sans:      'Barlow', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 26px 30px 60px;
+}
+h1 { font-size: 19px; font-weight: 800; letter-spacing: -.2px; }
+h1 span { color: var(--accent); }
+.meta { color: var(--muted); font-size: 12px; margin: 4px 0 20px; }
+.zeile {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  border-radius: 12px;
+  padding: 11px 14px;
+  margin-bottom: 8px;
+}
+.zeile:hover { border-color: var(--border); }
+.stern { color: var(--accent); flex: 0 0 auto; display: flex; }
+.stern svg { width: 15px; height: 15px; }
+.stern svg path { fill: currentColor; }
+.kern { flex: 1; min-width: 0; }
+.name { display: block; font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dom  { display: block; color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.datum { color: var(--muted); font-size: 11px; flex: 0 0 auto; }
+.aktion {
+  border: 1px solid var(--border-s); background: none; color: var(--muted);
+  font-family: var(--sans); font-size: 12px; border-radius: 8px;
+  padding: 5px 10px; cursor: pointer; flex: 0 0 auto;
+}
+.aktion:hover { color: var(--accent); border-color: var(--border); background: var(--accent-lo); }
+.name-edit {
+  font-family: var(--sans); font-size: 14px; font-weight: 600;
+  background: var(--bg); color: var(--text);
+  border: 1px solid var(--accent); border-radius: 7px; padding: 3px 8px; width: 100%;
+  outline: none;
+}
+.leer {
+  color: var(--muted); font-size: 14px; text-align: center;
+  padding: 60px 20px;
+}
+.leer b { color: var(--text); }
+</style>
+</head>
+<body>
+<h1>Favoriten <span>·</span> deine gespeicherten Seiten</h1>
+<div class="meta" id="zaehler">—</div>
+<div id="liste"></div>
+<script src="js/favorites.js"></script>
+<script src="theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "_kommentar": "Öffentliche SearXNG-Instanzen (Lastenheft Baustein 2). Kriterien: keine Logs, keine Registrierung, Datenschutz-Seite. Der Browser fragt sie im echten Chromium-Renderer (leeres Agent-Profil) — JS-Schutzwände werden dort automatisch gelöst. Ausgefallene Instanzen pausieren kurz, die Anfrage wandert zur nächsten (Rotation).",
+  "instanzen": [
+    { "url": "https://searx.be" },
+    { "url": "https://search.bus-hit.me" },
+    { "url": "https://searx.tiekoetter.com" },
+    { "url": "https://paulgo.io" },
+    { "url": "https://priv.au" },
+    { "url": "https://opnxng.com" },
+    { "url": "https://searxng.site" },
+    { "url": "https://baresearch.org" },
+    { "url": "https://searx.work" },
+    { "url": "https://search.inetol.net" },
+    { "url": "https://searx.colbster937.dev" },
+    { "url": "https://search.rhscz.eu" }
+  ]
+}

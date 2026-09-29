@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- 3DK Browser — Eigene Ergebnisliste (Design 1:1 aus 3dk-search.html: .result-item-Styles).
+     Keine Anbieter-Oberfläche: nur Titel, URL, Snippet — ohne Werbung. -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data: https: http:; font-src 'self' file:; connect-src 'self' file:;">
+<title>3DK Browser — Suche</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="icon" href="logo-256.png" type="image/png">
+<style>
+:root {
+  --bg:        #0D0D0D;
+  --bg-card:   #141414;
+  --bg-hover:  #181818;
+  --text:      #EDEDED;
+  --muted:     #8A8A8A;
+  --accent:    #E8621A;
+  --accent-lo: rgba(232,98,26,.12);
+  --border:    rgba(232,98,26,.18);
+  --border-s:  #262626;
+  --sans:      'Barlow', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; min-height: 100vh; }
+.results-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+.results-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.results-cats {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.results-cats button {
+  border: 1px solid var(--border-s);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.results-cats button:hover { color: var(--text); }
+.results-cats button.active {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--accent-lo);
+}
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.img-cell {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  cursor: pointer;
+}
+.img-cell img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-hover);
+}
+.img-cell .cap {
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.result-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-s);
+  border-radius: 8px;
+}
+.result-item.aufgestiegen { animation: aufstieg 2.2s ease; }
+@keyframes aufstieg {
+  0%, 55% { background: var(--accent-lo); }
+  100% { background: transparent; }
+}
+.result-item:last-child { border-bottom: none; }
+.result-url-text {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-bottom: 5px;
+}
+.result-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  line-height: 1.3;
+  display: block;
+  margin-bottom: 5px;
+  transition: color .15s;
+  cursor: pointer;
+}
+.result-title:hover { color: #ff9940; text-decoration: underline; }
+.badge-official {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-lo);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+.result-snippet {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.result-excerpt-label {
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.75;
+  margin-top: 2px;
+}
+/* Baustein B: „Direkt bei“-Kacheln */
+.direkt-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: 4px 0 20px;
+}
+.direkt-titel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.direkt-tiles { display: flex; gap: 12px; flex-wrap: wrap; }
+.direkt-tile {
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  min-width: 140px;
+  transition: border-color 0.12s, transform 0.12s;
+}
+.direkt-tile:hover { border-color: var(--accent); transform: translateY(-1px); }
+.direkt-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.direkt-domain { font-size: 11px; color: var(--muted); margin-top: 2px; }
+/* Baustein C: dünner Fortschrittsstrich, während der Browser Seiten liest */
+.reading-bar {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  animation: reading 1.1s linear infinite;
+  border-radius: 2px;
+  margin: 0 0 14px;
+}
+@keyframes reading {
+  0% { background-position: -40% 0; }
+  100% { background-position: 140% 0; }
+}
+/* Instant Answer: Wetter-Karte */
+.widget-weather {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin: 4px 0 22px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.widget-weather .now { display: flex; align-items: center; gap: 16px; }
+.widget-weather .wicon { font-size: 46px; line-height: 1; }
+.widget-weather .wtemp { font-size: 40px; font-weight: 700; letter-spacing: -1px; }
+.widget-weather .wtemp sup { font-size: 18px; font-weight: 500; color: var(--muted); }
+.widget-weather .wmeta { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.widget-weather .wplace { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.widget-weather .wdays { display: flex; gap: 14px; margin-left: auto; }
+.widget-weather .wday { text-align: center; font-size: 12px; color: var(--muted); min-width: 52px; }
+.widget-weather .wday .di { font-size: 20px; }
+.widget-weather .wday .tmax { color: var(--text); font-weight: 600; }
+/* Infobox-Karte (z. B. Stadt): Bild + Kurzinfo wie bei Chrome/Edge */
+.widget-info {
+  display: flex;
+  gap: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin: 4px 0 22px;
+  align-items: flex-start;
+}
+.widget-info img {
+  width: 128px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: var(--bg-hover);
+}
+.widget-info .ib-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.widget-info .ib-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.widget-info .ib-link { font-size: 12px; color: var(--accent); margin-top: 8px; cursor: pointer; }
+.answers {
+  background: var(--bg-card);
+  border: 1px solid var(--border-s);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 4px 0 22px;
+  font-size: 15px;
+}
+/* Kontextmenü (Rechtsklick auf Treffer/Bild) */
+.ctxmenu {
+  position: fixed;
+  z-index: 50;
+  min-width: 240px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+  display: none;
+}
+.ctxmenu.open { display: block; }
+.ctxmenu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.ctxmenu button:hover { background: var(--accent-lo); color: var(--accent); }
+.ctxmenu .sep { height: 1px; background: var(--border-s); margin: 5px 8px; }
+.img-cell img { transition: opacity .25s; }
+.img-cell img.loading { opacity: 0; }
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 80px 0;
+}
+.empty b { color: var(--accent); }
+.loading { text-align: center; color: var(--muted); padding: 80px 0; }
+</style>
+</head>
+<body>
+<div class="results-body">
+  <div class="results-meta" id="meta"></div>
+  <div class="results-cats">
+    <button id="cat-web" class="active" type="button">Alles</button>
+    <button id="cat-img" type="button">Bilder</button>
+  </div>
+  <div class="loading" id="loading">Suche läuft …</div>
+  <div id="list"></div>
+</div>
+<div class="ctxmenu" id="ctxmenu"></div>
+<script src="theme.js"></script>
+<script src="js/results.js"></script>
+</body>
+</html>

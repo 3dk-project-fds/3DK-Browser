@@ -1,0 +1,57 @@
+{
+  "name": "3dk-browser",
+  "version": "1.0.3",
+  "private": true,
+  "description": "Datenschutzfreundlicher Browser (DSGVO, kein Tracking, lokale verschlüsselte Daten) auf Chromium-Basis",
+  "author": "Konstantin Pfeifer <info@3dkproject.de>",
+  "license": "AGPL-3.0",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis --linux AppImage deb",
+    "probe": "node tools/sicherheitsprobe.js",
+    "cloudtest": "node tools/cloud-test.js",
+    "bench": "node tools/search-benchmark.js",
+    "test": "electron tools/cloud-test.js && node tools/suche-test.js && node tools/sicherheitsprobe.js && npm run agenttest && electron tools/favoriten-test.js",
+    "favtest": "electron tools/favoriten-test.js",
+    "agenttest": "electron tools/agent-api-test.js",
+    "suchtest": "node tools/suche-test.js"
+  },
+  "devDependencies": {
+    "electron": "^44.4.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "de.3dkproject.browser",
+    "productName": "3DK Browser",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "app/**/*",
+      "!app/devtest.js",
+      "!app/**/*probe*",
+      "!app/**/*test*"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "category": "Network",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "3DK-Browser-${version}-setup.${ext}"
+    }
+  }
+}

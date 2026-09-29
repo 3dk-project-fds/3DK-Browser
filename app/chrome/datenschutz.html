@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 3DK Browser — Datenschutzerklärung (intern, auf das Gerät bezogen) -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data:; font-src 'self' file:; connect-src 'self' file:;">
+<title>3DK Browser — Datenschutzerklärung</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="icon" href="logo-256.png" type="image/png">
+<style>
+:root {
+  --bg: #0D0D0D; --bg-card: #141414; --text: #EDEDED; --muted: #8A8A8A;
+  --accent: #E8621A; --border-s: #262626;
+  --sans: 'Barlow', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; padding: 26px 30px 60px; }
+h1 { font-size: 19px; font-weight: 800; margin-bottom: 6px; }
+h2 { font-size: 14px; font-weight: 700; margin: 22px 0 6px; color: var(--accent); }
+p, li { line-height: 1.65; margin-bottom: 8px; }
+ul { padding-left: 20px; margin-bottom: 8px; }
+.kern { background: var(--bg-card); border: 1px solid var(--border-s); border-radius: 12px; padding: 14px 16px; margin: 14px 0 6px; }
+.meta { color: var(--muted); font-size: 12px; margin-top: 26px; }
+a { color: var(--accent); }
+</style>
+</head>
+<body>
+<h1>Datenschutzerklärung — 3DK Browser</h1>
+<p style="color: var(--muted)">Diese Erklärung gilt für den 3DK Browser auf deinem Gerät — nicht für die Website 3dkproject.de (dafür gilt deren eigene Datenschutzerklärung).</p>
+
+<div class="kern">
+<p><b>Das Wichtigste in Kürze:</b> Der Browser übermittelt keine Daten an den Herausgeber. Es gibt keinen Account, keine Telemetrie, keine Absturzberichte, keine Tracking-Analytics und keinen Server des Herausgebers. Alles, was der Browser speichert, liegt verschlüsselt auf deinem Gerät. Daten im Netz sehen nur die Dienste, die du selbst bewusst ansprichst (Suchquellen, Wetter, besuchte Webseiten).</p>
+</div>
+
+<h2>1. Verantwortlicher</h2>
+<p>Konstantin Pfeifer, 3DK Project, Musbacher Straße 62, 72250 Freudenstadt, info@3dkproject.de. Details im Impressum (Einstellungen → „Herausgeber“ → Impressum).</p>
+
+<h2>2. Was auf deinem Gerät verarbeitet und gespeichert wird</h2>
+<ul>
+<li><b>Verlauf, Downloads, Einstellungen, Favoriten:</b> lokal als AES-256-GCM-verschlüsselte Dateien im Browserprofil; der Schlüssel liegt im Betriebssystem-Tresor deines Nutzerkontos (Windows: DPAPI). Nur dein Nutzerkonto kann ihn lesen.</li>
+<li><b>Such- und Seiten-Cache, Cookies erster Partei:</b> lokal im Profil. Drittanbieter-Cookies sind standardmäßig blockiert, bekannte Werbe- und Tracking-Dienste (~120) werden nicht geladen.</li>
+<li><b>Löschen:</b> Einstellungen → „Daten auf diesem Gerät“: Verlauf löschen oder „Restlos leeren“ (danach ist das Profil leer).</li>
+</ul>
+
+<h2>3. Welche Daten das Gerät verlassen — und wer sie bekommt</h2>
+<p>Der Browser leitet Anfragen ausschließlich direkt an die Dienste weiter, die du nutzt. Der Herausgeber selbst erhält nichts:</p>
+<ul>
+<li><b>Suchanfragen</b> gehen an die freien Suchquellen, die parallel antworten: Bing (Microsoft), Brave Search, Mojeek, DuckDuckGo, Wikipedia sowie — falls in den Einstellungen eingeschaltet — öffentliche SearXNG-Gemeinschaftsinstanzen. Jede Anfrage ist dabei die normale Suchanfrage, wie sie jeder Browser sendet; eine Verknüpfung mit deiner Person durch die Anbieter kann der Browser nicht ausschließen, wohl aber reduzieren: kein Konto, keine Cookies der Anbieter, gekürzter Referrer, DNT/GPC-Signal.</li>
+<li><b>Gelesene Webseiten:</b> Beim Öffnen einer Seite und beim „Gründlich suchen“ (Auszüge) ruft der Browser die Seiten direkt auf; dabei fällt deine IP-Adresse beim jeweiligen Seitenbetreiber an — wie bei jedem Browser.</li>
+<li><b>Wetter-Widget:</b> Ortseingaben werden an Open-Meteo (Geocoding + Vorhersage) übermittelt, ohne persönliche Daten.</li>
+<li><b>Optionale Cloud-Sicherung:</b> Nur wenn du sie einschaltest. Verlauf, Downloads, Einstellungen und Favoriten werden mit deiner Passphrase verschlüsselt (AES-256-GCM, PBKDF2) und als undurchsichtiger Block auf dein WebDAV-Ziel (z. B. dein Nextcloud) geladen. Der Speicheranbieter sieht die Inhalte nicht.</li>
+<li><b>Optionale Assistenten-Anbindung (MCP):</b> Rein lokal an 127.0.0.1, nur mit Schlüssel, mit Ratenbegrenzung und Protokollierung im Browser. Kein Datenverkehr nach außen durch diesen Dienst.</li>
+</ul>
+
+<h2>4. Rechtsgrundlage</h2>
+<p>Soweit bei der Nutzung dieses Werkzeugs personenbezogene Daten verarbeitet werden, geschieht dies auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO — im Interesse an der Nutzung eines datenschutzfreundlichen Browsers; die konkrete Nutzung bestimmst du. Der Herausgeber verarbeitet selbst keine personenbezogenen Daten, da er keine Dienste betreibt.</p>
+
+<h2>5. Deine Rechte</h2>
+<p>Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch: Da der Herausgeber keine Nutzerdaten besitzt, kannst du alle Daten direkt am Gerät löschen („Restlos leeren“, Verlauf löschen) — das ist die vollständigste Erfüllung dieser Rechte. Für Daten, die Suchanbieter oder besuchte Seiten von dir verarbeiten, gelten deren Erklärungen.</p>
+
+<h2>6. Diese Erklärung ändern</h2>
+<p>Änderungen erscheinen hier mit neuem Stand. Der Browser fragt keine Zustimmung im Netz; er funktioniert ohne jede Online-Aktivität des Herausgebers.</p>
+
+<div class="meta">Stand: 27.09.2026 · 3DK Browser · Herausgeber: siehe Impressum</div>
+<script src="theme.js"></script>
+</body>
+</html>

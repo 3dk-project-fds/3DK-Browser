@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- 3DK Browser — Startseite (Hero 1:1 aus 3dk-search.html) -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data:; font-src 'self' file:; connect-src 'self' file:;">
+<title>3DK Browser</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="icon" href="logo-256.png" type="image/png">
+<style>
+:root {
+  --bg:        #0D0D0D;
+  --text:      #EDEDED;
+  --muted:     #8A8A8A;
+  --accent:    #E8621A;
+  --accent-lo: rgba(232,98,26,.12);
+  --accent-md: rgba(232,98,26,.25);
+  --border:    rgba(232,98,26,.18);
+  --shadow:    0 0 60px rgba(232,98,26,.15);
+  --sans:      'Barlow', ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cond:      'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; min-height: 100vh; overflow: hidden; }
+#hero {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100vh; padding: 40px 24px; text-align: center; position: relative; overflow: hidden;
+}
+.hero-gfx { position: absolute; inset: 0; pointer-events: none; }
+.hero-gfx::before {
+  content: '';
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--accent-lo), transparent);
+}
+.brand-mark { position: relative; display: flex; align-items: center; gap: 14px; }
+.brand-mark img { width: 56px; height: 56px; display: block; }
+.brand-mark .word { font-family: var(--cond); font-weight: 800; font-size: 44px; letter-spacing: -.5px; }
+.brand-mark .word span { color: var(--accent); }
+.tagline {
+  position: relative;
+  color: var(--muted); font-size: 12px;
+  letter-spacing: .22em; text-transform: uppercase;
+  margin: 8px 0 34px;
+}
+#search {
+  position: relative;
+  width: min(640px, 90%);
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  outline: none;
+  box-shadow: var(--shadow);
+}
+#search:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-lo); }
+.privacy { position: relative; margin-top: 26px; color: var(--muted); font-size: 12px; }
+.favlink { display: inline-block; margin-top: 14px; color: var(--muted); font-size: 13px; text-decoration: none; border-bottom: 1px dotted var(--muted); padding: 2px 2px; transition: color .15s, border-color .15s; }
+.favlink:hover { color: var(--accent); border-color: var(--accent); }
+.favlink[hidden] { display: none; }
+.privacy b { color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="hero">
+  <div class="hero-gfx"></div>
+  <div class="brand-mark">
+    <img src="logo-256.png" alt="" width="56" height="56">
+    <div class="word">3DK <span>Browser</span></div>
+  </div>
+  <div class="tagline">Privat. Sicher. Europäisch.</div>
+  <input id="search" type="text" placeholder="Suchen oder Adresse eingeben …" autocomplete="off" spellcheck="false" autofocus>
+  <div class="privacy">Kein Tracking. Keine Cloud. <b>Deine Daten bleiben bei dir.</b></div>
+  <a href="#" id="fav-link" class="favlink" hidden>Favoriten ansehen</a>
+</div>
+<script src="theme.js"></script>
+<script src="js/start.js"></script>
+<script>
+// Favoriten-Link nur zeigen, wenn Favoriten vorhanden sind (kein Blindtext).
+(function () {
+  const l = document.getElementById('fav-link');
+  if (!l || !window.api || !window.api.listFavorites) return;
+  const frisch = () => window.api.listFavorites().then((f) => { l.hidden = !(f && f.length); }).catch(() => {});
+  frisch();
+  l.addEventListener('click', (e) => { e.preventDefault(); window.api.openFavorites(); });
+  if (window.api.onFavorites) window.api.onFavorites(frisch);
+})();
+</script>
+</body>
+</html>
