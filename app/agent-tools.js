@@ -325,4 +325,183 @@ async function fetchHtmlImAgentProfil(url, opts) {
   }
 }
 
-module.exports = { search3dk, fetchPage, fetchHtmlImAgentProfil, clearAgentProfile, PARTITION, LIMITS };
+// ── Computer-Use: ein sichtbares, persistentes Arbeitsfenster ──────────────
+// Bewusst NUR der Browser (keine OS-Maus/Tastatur). Läuft in derselben,
+// leeren Partition "3dk-agent" wie der Lese-Abruf und unterliegt demselben
+// Guard: lokale Netze, private Adressen, Dateien und angemeldete Konten des
+// echten Browsers bleiben gesperrt. Das Fenster wird on-demand erzeugt und
+// auf browser_close nur geschlossen — der Dienst bleibt warm.
+let agentWin = null;
+
+function fenster() {
+  if (agentWin && !agentWin.isDestroyed()) return agentWin;
+  installAgentGuard();
+  agentWin = new BrowserWindow({
+    show: true, width: 1280, height: 900,
+    title: '3DK Agent',
+    backgroundColor: '#0b0e14',
+    webPreferences: {
+      partition: PARTITION,
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
+    },
+  });
+  agentWin.webContents.on('will-navigate', (e, target) => {
+    if (!security.agentTargetAllowed(target).ok) e.preventDefault();
+  });
+  // Titel an die echte Seite anpassen, damit das Fenster erkennbar bleibt.
+  agentWin.webContents.on('page-title-updated', (_e, t) => {
+    try { if (t) agentWin.setTitle('3DK Agent — ' + String(t).slice(0, 60)); } catch { /* egal */ }
+  });
+  return agentWin;
+}
+
+// Warten bis did-finish-load + Settle; warft bei Ladefehler oder Zeitablauf.
+function bisGeladen(win, timeoutMs) {
+  const cap = Math.min(Number(timeoutMs) || LIMITS.timeoutMs, LIMITS.timeoutMs);
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      try { win.webContents.stop(); } catch { /* egal */ }
+      reject(new Error('Zeit abgelaufen'));
+    }, cap);
+    const sauber = (fn) => (...a) => { clearTimeout(timer); fn(...a); };
+    win.webContents.once('did-fail-load', sauber((_e, code, desc, target, main) => {
+      if (main) reject(new Error(erklaereLadefehler(code, desc, target)));
+    }));
+    win.webContents.once('did-finish-load', sauber(() => setTimeout(resolve, LIMITS.settleMs)));
+  });
+}
+
+async function gewinne(win, url, timeoutMs) {
+  const pruefung = security.agentTargetAllowed(url);
+  if (!pruefung.ok) throw new Error('Ziel nicht erlaubt: ' + pruefung.grund);
+  const fertig = bisGeladen(win, timeoutMs);
+  try { await win.webContents.loadURL(String(url)); }
+  catch { /* loadURL wirft bei Fehler; 'fertig' liefert die klare Aussage */ }
+  await fertig;
+  const finalUrl = win.webContents.getURL();
+  const finalPruefung = security.agentTargetAllowed(finalUrl);
+  if (!finalPruefung.ok) throw new Error('Umgeleitet auf ein gesperrtes Ziel');
+  if (!security.testFreigabeLoopback()) {
+    const host = new URL(finalUrl).hostname;
+    const eintrag = await resolveHost(host);
+    if (eintrag.privat) throw new Error('Umgeleitet auf eine interne Adresse');
+  }
+  return finalUrl;
+}
+
+async function leseStand(win) {
+  const stand = await win.webContents.executeJavaScript(AUFBAU, true);
+  return {
+    url: win.webContents.getURL(),
+    title: ableiten(stand.title, LIMITS.maxTitle),
+    text: ableiten(stand.text, LIMITS.maxText),
+    links: (stand.links || []).slice(0, LIMITS.maxLinks).map((l) => ({
+      text: ableiten(l.text, 160), url: String(l.url || '').slice(0, 500),
+    })),
+  };
+}
+
+async function browserOpen(args) {
+  const win = fenster();
+  await gewinne(win, (args && args.url) || 'about:blank', args && args.timeoutMs);
+  return await leseStand(win);
+}
+
+async function browserNavigate(args) {
+  const win = fenster();
+  await gewinne(win, args && args.url, args && args.timeoutMs);
+  return await leseStand(win);
+}
+
+async function browserBack() {
+  const win = fenster();
+  if (win.webContents.canGoBack()) win.webContents.goBack();
+  await new Promise((r) => setTimeout(r, LIMITS.settleMs));
+  return await leseStand(win);
+}
+
+async function browserRead() {
+  const win = fenster();
+  return await leseStand(win);
+}
+
+async function browserScreenshot(args) {
+  const win = fenster();
+  if (args && args.allowScreenshot === false) return { ok: false, hinweis: 'Bildschirmfotos sind abgeschaltet' };
+  try { win.show(); win.focus(); win.webContents.focus(); } catch { /* egal */ }
+  // capturePage kann direkt nach einer Navigation einen flüchtigen
+  // Chromium-Fehler ("UnknownVizError") oder ein leeres Bild liefern.
+  // Deshalb mehrfach mit kurzem Abstand nach einem echten Rahmen greifen.
+  let letzter = 'leeres Bild';
+  for (let versuch = 0; versuch < 5; versuch++) {
+    try {
+      const png = await win.webContents.capturePage();
+      const base64 = png.toPNG().toString('base64');
+      if (base64.length > LIMITS.maxScreenshotBase64) return { ok: false, hinweis: 'Bild zu groß' };
+      if (base64.length > 64) return { ok: true, url: win.webContents.getURL(), screenshot: base64, screenshotType: 'image/png' };
+      letzter = 'leeres Bild';
+    } catch (e) {
+      letzter = String(e.message || e);
+    }
+    await new Promise((r) => setTimeout(r, 300));
+  }
+  return { ok: false, hinweis: 'Screenshot fehlgeschlagen: ' + letzter };
+}
+
+async function browserClick(args) {
+  const win = fenster();
+  const x = Number(args && args.x), y = Number(args && args.y);
+  if (!Number.isFinite(x) || !Number.isFinite(y)) throw new Error('x und y (Koordinaten) sind nötig');
+  const button = args && args.button === 'right' ? 'right' : 'left';
+  const clickCount = args && args.double ? 2 : 1;
+  try { win.focus(); win.webContents.focus(); } catch { /* egal */ }
+  win.webContents.sendInputEvent({ type: 'mouseDown', x, y, button, clickCount });
+  win.webContents.sendInputEvent({ type: 'mouseUp', x, y, button, clickCount });
+  if (args && args.settleMs !== undefined) await new Promise((r) => setTimeout(r, Math.min(Number(args.settleMs) || 0, 8000)));
+  return { ok: true, geklickt: { x, y, button }, url: win.webContents.getURL() };
+}
+
+async function browserType(args) {
+  const win = fenster();
+  const text = String((args && args.text) || '');
+  if (!text) throw new Error('Kein Text angegeben');
+  try { win.focus(); win.webContents.focus(); } catch { /* egal */ }
+  win.webContents.insertText(text);
+  return { ok: true, getippt: text.length, url: win.webContents.getURL() };
+}
+
+const TASTEN = { Enter: 'Return', Tab: 'Tab', Escape: 'Escape', Backspace: 'Backspace', Delete: 'Delete', Up: 'Up', Down: 'Down', Left: 'Left', Right: 'Right' };
+async function browserKey(args) {
+  const win = fenster();
+  const key = String((args && args.key) || '');
+  const keyCode = TASTEN[key];
+  if (!keyCode) throw new Error('Taste nicht erlaubt (nur Enter, Tab, Escape, Backspace, Delete, Pfeile)');
+  try { win.focus(); win.webContents.focus(); } catch { /* egal */ }
+  win.webContents.sendInputEvent({ type: 'keyDown', keyCode });
+  win.webContents.sendInputEvent({ type: 'keyUp', keyCode });
+  if (args && args.settleMs !== undefined) await new Promise((r) => setTimeout(r, Math.min(Number(args.settleMs) || 0, 8000)));
+  return { ok: true, taste: key, url: win.webContents.getURL() };
+}
+
+async function browserScroll(args) {
+  const win = fenster();
+  const dy = Number((args && args.deltaY) || 0);
+  const dx = Number((args && args.deltaX) || 0);
+  if (!Number.isFinite(dx) || !Number.isFinite(dy)) throw new Error('deltaY/deltaX nötig');
+  const x = Number.isFinite(Number(args.x)) ? Number(args.x) : 640;
+  const y = Number.isFinite(Number(args.y)) ? Number(args.y) : 450;
+  try { win.focus(); win.webContents.focus(); } catch { /* egal */ }
+  win.webContents.sendInputEvent({ type: 'mouseWheel', x, y, deltaX: dx, deltaY: dy });
+  return { ok: true, gescrollt: { dx, dy } };
+}
+
+async function browserClose() {
+  const gabFenster = Boolean(agentWin && !agentWin.isDestroyed());
+  if (gabFenster) { try { agentWin.destroy(); } catch { /* egal */ } }
+  agentWin = null;
+  return { ok: true, fensterGeschlossen: gabFenster, dienstWarm: true };
+}
+
+module.exports = { search3dk, fetchPage, fetchHtmlImAgentProfil, clearAgentProfile, PARTITION, LIMITS, browserOpen, browserNavigate, browserBack, browserRead, browserScreenshot, browserClick, browserType, browserKey, browserScroll, browserClose };

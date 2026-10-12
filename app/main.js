@@ -77,6 +77,7 @@ const WRITABLE = {
   'agent.allowScreenshot': Boolean,
   'agent.tools.search': Boolean,
   'agent.tools.fetch': Boolean,
+  'agent.tools.computer': Boolean,
 };
 
 let settings = structuredClone(DEFAULTS);

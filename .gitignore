@@ -7,3 +7,8 @@ dist/
 artifacts/
 tmp/
 .DS_Store
+
+# Agent-Geheimnisse und -Profil bleiben lokal, nie im Repo
+agent-einstellungen.json
+agent-token.txt
+agent-protokoll*

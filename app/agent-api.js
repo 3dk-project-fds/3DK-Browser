@@ -34,7 +34,7 @@ function settingsVon(getSettings) {
     enabled: Boolean(s.agent && s.agent.enabled),
     port: Number(s.agent && s.agent.port) || 8765,
     token: String((s.agent && s.agent.token) || ''),
-    tools: Object.assign({ search: true, fetch: true }, (s.agent && s.agent.tools) || {}),
+    tools: Object.assign({ search: true, fetch: true, computer: false }, (s.agent && s.agent.tools) || {}),
     allowScreenshot: s.agent && s.agent.allowScreenshot !== false,
   };
 }
@@ -147,6 +147,19 @@ function werkzeugListe(cfg) {
       },
     });
   }
+  if (cfg.tools.computer) {
+    const schema = (props, required) => ({ type: 'object', properties: props, required: required || [] });
+    liste.push({ name: 'browser_open', description: 'Öffnet eine URL im sichtbaren Agent-Fenster und liest Titel, Text und Links. Eigene, isolierte Browser-Instanz (keine deiner Konten; lokale Netze/private IPs gesperrt).', inputSchema: schema({ url: { type: 'string' }, timeoutMs: { type: 'number', maximum: 15000 } }, ['url']) });
+    liste.push({ name: 'browser_navigate', description: 'Lädt eine neue Adresse im offenen Agent-Fenster.', inputSchema: schema({ url: { type: 'string' }, timeoutMs: { type: 'number', maximum: 15000 } }, ['url']) });
+    liste.push({ name: 'browser_back', description: 'Zurück im Agent-Fenster.', inputSchema: schema({}) });
+    liste.push({ name: 'browser_read', description: 'Liest den aktuellen Stand (Titel, Text, Links) des Agent-Fensters.', inputSchema: schema({}) });
+    liste.push({ name: 'browser_screenshot', description: 'Bildschirmfoto des Agent-Fensters als PNG (base64).', inputSchema: schema({}) });
+    liste.push({ name: 'browser_click', description: 'Linksklick (oder rechts/doppelt) auf Koordinaten x/y im Agent-Fenster.', inputSchema: schema({ x: { type: 'number' }, y: { type: 'number' }, button: { type: 'string', enum: ['left', 'right'] }, double: { type: 'boolean' }, settleMs: { type: 'number', maximum: 8000 } }, ['x', 'y']) });
+    liste.push({ name: 'browser_type', description: 'Tippt Text in das fokussierte Feld des Agent-Fensters.', inputSchema: schema({ text: { type: 'string' } }, ['text']) });
+    liste.push({ name: 'browser_key', description: 'Sondertaste: Enter, Tab, Escape, Backspace, Delete, Up, Down, Left, Right.', inputSchema: schema({ key: { type: 'string', enum: ['Enter', 'Tab', 'Escape', 'Backspace', 'Delete', 'Up', 'Down', 'Left', 'Right'] }, settleMs: { type: 'number', maximum: 8000 } }, ['key']) });
+    liste.push({ name: 'browser_scroll', description: 'Scrollt im Agent-Fenster (deltaY positiv = abwärts).', inputSchema: schema({ deltaY: { type: 'number' }, deltaX: { type: 'number' }, x: { type: 'number' }, y: { type: 'number' } }, ['deltaY']) });
+    liste.push({ name: 'browser_close', description: 'Schließt das Agent-Fenster. Der Dienst bleibt warm.', inputSchema: schema({}) });
+  }
   return liste;
 }
 
@@ -162,6 +175,19 @@ async function werkzeugAusfuehren(name, args, cfg) {
     const r = await tools.fetchPage(a);
     return r;
   }
+  const b = (m) => { if (!cfg.tools.computer) throw new Error('Browserbedienung ist abgeschaltet'); return tools[m](args); };
+  switch (name) {
+    case 'browser_open': return b('browserOpen');
+    case 'browser_navigate': return b('browserNavigate');
+    case 'browser_back': return b('browserBack');
+    case 'browser_read': return b('browserRead');
+    case 'browser_screenshot': return tools.browserScreenshot({ ...(args || {}), allowScreenshot: cfg.allowScreenshot });
+    case 'browser_click': return b('browserClick');
+    case 'browser_type': return b('browserType');
+    case 'browser_key': return b('browserKey');
+    case 'browser_scroll': return b('browserScroll');
+    case 'browser_close': return b('browserClose');
+  }
   throw new Error('Unbekanntes Werkzeug: ' + name);
 }
 
@@ -176,7 +202,7 @@ async function verarbeite(nachricht, cfg) {
       protocolVersion: (params && params.protocolVersion) || '2025-03-26',
       capabilities: { tools: {} },
       serverInfo: { name: '3dk-browser', title: '3DK Browser', version: app.getVersion() },
-      instructions: 'Zwei Werkzeuge: search3dk (suchen) und fetchPage (eine Seite lesen). Der Browser wird nicht bedient.',
+      instructions: 'Werkzeuge: search3dk (suchen), fetchPage (lesen)' + (cfg.tools.computer ? ' sowie Browserbedienung (browser_*) in einer eigenen, isolierten, sichtbaren Instanz.' : '. Der Browser wird nicht bedient.'),
     });
   }
   if (method === 'ping') return antwort({ ok: true, version: app.getVersion() });

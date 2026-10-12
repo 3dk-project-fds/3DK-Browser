@@ -8,6 +8,7 @@
   "main": "app/main.js",
   "scripts": {
     "start": "electron .",
+    "agent": "electron app/agent-main.js",
     "build": "electron-builder --win nsis --linux AppImage deb",
     "probe": "node tools/sicherheitsprobe.js",
     "cloudtest": "node tools/cloud-test.js",
